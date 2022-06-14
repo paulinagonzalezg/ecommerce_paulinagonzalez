@@ -12,7 +12,6 @@ view: users {
     type: number
     sql: ${TABLE}.id ;;
   }
-
   # Here's what a typical dimension looks like in LookML.
   # A dimension is a groupable field that can be used to filter query results.
   # This dimension will be called "Age" in Explore.
@@ -77,6 +76,11 @@ view: users {
   dimension: gender {
     type: string
     sql: ${TABLE}.gender ;;
+    html: {% if value == 'f'%}
+         <p><img src="https://img.icons8.com/ios-filled/50/undefined/standing-woman.png" height=50 width=50>{{ rendered_value }}</p>
+      {% else %}
+        <p><img src="https://img.icons8.com/ios-glyphs/30/undefined/men-age-group-4.png" height=50 width=50>{{ rendered_value }}</p>
+      {% endif %} ;;
   }
 
   dimension: last_name {
@@ -92,6 +96,17 @@ view: users {
   dimension: traffic_source {
     type: string
     sql: ${TABLE}.traffic_source ;;
+    html: {% if value == 'Display'%}
+         <p><img src="http://findicons.com/files/icons/2806/plex_for_android/96/people.png" height=20 width=20>{{ rendered_value }}</p>
+         {% elsif value == 'Email' %}
+        <p><img src="http://findicons.com/files/icons/2806/plex_for_android/96/gmail.png" height=20 width=20>{{ rendered_value }}</p>
+         {% elsif value == 'Facebook' %}
+        <p><img src="http://findicons.com/files/icons/2806/plex_for_android/96/facebook.png" height=20 width=20>{{ rendered_value }}</p>
+         {% elsif value == 'Organic' %}
+        <p><img src="http://findicons.com/files/icons/2806/plex_for_android/96/office.png" height=20 width=20>{{ rendered_value }}</p>
+      {% else %}
+        <p><img src="http://findicons.com/files/icons/2806/plex_for_android/96/springpad.png" height=20 width=20>{{ rendered_value }}</p>
+      {% endif %} ;;
   }
 
   dimension: zip {

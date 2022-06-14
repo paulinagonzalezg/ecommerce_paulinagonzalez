@@ -20,6 +20,13 @@ view: products {
   dimension: brand {
     type: string
     sql: ${TABLE}.brand ;;
+    html:
+    {% if value == _user_attributes ['brand'] %}
+    <p style= "color:black; background-color:yellow; font-size: 100%;">{{ rendered_value }}</p>
+    {% else %}
+    <p>{{ rendered_value }}</p>
+    {% endif %};;
+
   }
 
   dimension: category {
@@ -59,6 +66,7 @@ view: products {
   measure: average_retail_price {
     type: average
     sql: ${retail_price} ;;
+    value_format: "0.##"
   }
 
   dimension: sku {

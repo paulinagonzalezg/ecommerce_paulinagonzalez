@@ -14,9 +14,9 @@ datagroup: ecommerce_paulinagonzalez_default_datagroup {
 
 persist_with: ecommerce_paulinagonzalez_default_datagroup
 
-datagroup: month_end_datagroup {
-  sql_trigger: SELECT (EXTRACT(MONTH FROM DATEADD( day, 1, GETDATE()))) ;;
-  description: "Triggered on the last day of each month"
+datagroup: scheduled_datagroup_6 {
+  sql_trigger: SELECT FLOOR(((TIMESTAMP_DIFF(CURRENT_TIMESTAMP(),'1970-01-01 00:00:00',SECOND)) - 60*60*6)/(60*60*24)) ;;
+  description: "Triggered evryday at 6 am"
 }
 
 # Explores allow you to join together different views (database tables) based on the

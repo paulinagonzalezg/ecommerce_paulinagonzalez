@@ -14,6 +14,11 @@ datagroup: ecommerce_paulinagonzalez_default_datagroup {
 
 persist_with: ecommerce_paulinagonzalez_default_datagroup
 
+datagroup: month_end_datagroup {
+  sql_trigger: SELECT (EXTRACT(MONTH FROM DATEADD( day, 1, GETDATE()))) ;;
+  description: "Triggered on the last day of each month"
+}
+
 # Explores allow you to join together different views (database tables) based on the
 # relationships between fields. By joining a view into an Explore, you make those
 # fields available to users for data analysis.

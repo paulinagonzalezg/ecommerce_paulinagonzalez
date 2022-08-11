@@ -38,12 +38,14 @@ view: users {
   dimension: city {
     type: string
     sql: ${TABLE}.city ;;
+    group_label: "Shipping Info"
   }
 
   dimension: country {
     type: string
     map_layer_name: countries
     sql: ${TABLE}.country ;;
+    group_label: "Shipping Info"
   }
 
   # Dates and timestamps can be represented in Looker using a dimension group of type: time.
@@ -91,6 +93,7 @@ view: users {
   dimension: state {
     type: string
     sql: ${TABLE}.state ;;
+    group_label: "Shipping Info"
   }
 
   dimension: traffic_source {

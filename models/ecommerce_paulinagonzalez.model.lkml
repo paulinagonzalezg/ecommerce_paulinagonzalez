@@ -80,6 +80,8 @@ explore: product_facts {
 # Typically, join parameters require that you define the join type, join relationship, and a sql_on clause.
 # Each joined view also needs to define a primary key.
 
-explore: products {}
+explore: products {
+  fields: [products.department, products.brand]
+}
 
 explore: users {}
